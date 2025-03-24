@@ -8,9 +8,11 @@ namespace GeoHashDaemon
 {
     public class PushoverImpl
     {
+        public static string apiToken = "";
+        public static string userToken = "";
+
         public static void SendAlert(string title, string message)
         {
-
             SendAlertAsync(title, message).ConfigureAwait(false).GetAwaiter().GetResult();
         }
 
@@ -26,10 +28,7 @@ namespace GeoHashDaemon
 
         public static async Task SendAlertAsync(string title, string message, Priority priority = Priority.Normal, NotificationSound notificationSound = NotificationSound.Magic)
         {
-            // Needs https://www.nuget.org/packages/PushoverNET/1.0.25/
-
-            var apiToken = "a2xdge8mhgc8jtrc2rdmmjn39zwi9o";
-            var userToken = "gku93zjrfyvwz6844oj3eb42sqhqf2";
+            // Needs https://github.com/roseeng/Pushover.NET
 
             Pushover pclient = new Pushover(apiToken, userToken);
             var response = await pclient.PushAsync(title, message, priority: priority, notificationSound: notificationSound);

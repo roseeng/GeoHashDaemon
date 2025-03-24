@@ -25,7 +25,11 @@ namespace GeoHashDaemon
             lifetime?.ApplicationStopping.Register(OnStopping);
             lifetime?.ApplicationStopped.Register(OnStopped);
 
-            logger.LogInformation("This is an information");
+            PushoverImpl.apiToken = config.GetValue<string>("pushover:apiToken");
+            PushoverImpl.userToken = config.GetValue<string>("pushover:userToken");
+
+            logger.LogInformation("Pushover configured.");
+
             logger.LogWarning($"MyServiceLifetime configured is: {MyServiceLifetime.Configured}");
             if (MyServiceLifetime.Configured)
             {
@@ -89,12 +93,12 @@ namespace GeoHashDaemon
         {
             if (DateTime.Now.Hour < lastCheckHour) // Current hour _less_ than last time -> must be a new day
             {
-                _logger.LogWarning("GeoHashDaemon: A new day!");
+                _logger.LogInformation("GeoHashDaemon: A new day!");
                 hasRunToday = false;
             }
 
             if (DateTime.Now.Hour != lastCheckHour) // Not the same hour as last time -> must be a new hour
-                _logger.LogWarning($"GeoHashDaemon still alive, hasRunToday={hasRunToday}, Now.Hour={DateTime.Now.Hour}, lastCheckHour={lastCheckHour}, RUN_AT={RUN_AT}");
+                _logger.LogInformation($"GeoHashDaemon still alive, hasRunToday={hasRunToday}, Now.Hour={DateTime.Now.Hour}, lastCheckHour={lastCheckHour}, RUN_AT={RUN_AT}");
 
 
             lastCheckHour = DateTime.Now.Hour;
@@ -113,7 +117,7 @@ namespace GeoHashDaemon
             else
             {
 #if VERBOSE
-                _logger.LogWarning("GeoHashDaemon: Not now, dear.");
+                _logger.LogInformation("GeoHashDaemon: Not now, dear.");
 #endif
             }
         }

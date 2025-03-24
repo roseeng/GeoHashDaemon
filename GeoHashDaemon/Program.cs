@@ -20,9 +20,8 @@ namespace GeoHashDaemon
                 {
                     //config.AddInMemoryCollection(arrayDict);
                     config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-                    //config.AddXmlFile("tvshow.xml", optional: false, reloadOnChange: false);
-                    //config.AddEFConfiguration(options => options.UseInMemoryDatabase("InMemoryDb"));
-                    config.AddCommandLine(args);
+                    config.AddJsonFile("Secrets\\secrets.json", optional: false, reloadOnChange: true);
+                    config.AddCommandLine(args); // Not used now, but cool.
                 })
                 .UseWindowsService()
                 .ConfigureServices((hostContext, services) =>

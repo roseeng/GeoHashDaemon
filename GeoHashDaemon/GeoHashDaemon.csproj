@@ -16,12 +16,15 @@
 
   <ItemGroup>
     <Reference Include="PushoverClient">
-      <HintPath>..\..\Pushover.NET\PushoverClient\bin\Debug\PushoverClient.dll</HintPath>
+      <HintPath>..\..\Pushover.NET\PushoverClient\bin\Debug\net8.0\PushoverClient.dll</HintPath>
     </Reference>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Secrets\secrets.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

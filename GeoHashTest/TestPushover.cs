@@ -8,6 +8,9 @@ namespace GeoHashTest
         [TestMethod]
         public void TestSend()
         {
+            PushoverImpl.apiToken = "";
+            PushoverImpl.userToken = "";
+
             PushoverImpl.SendNotification("Test", "Test");
         }
     }
