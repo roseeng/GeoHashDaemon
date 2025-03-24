@@ -13,6 +13,8 @@ namespace GeoHashDaemon
 {
     class GeoHashNotifier : BackgroundService
     {
+        private string _version = "1.4";
+
         private readonly ILogger<GeoHashNotifier> _logger;
         private readonly IConfiguration _config;
 
@@ -116,7 +118,7 @@ namespace GeoHashDaemon
             }
             else
             {
-#if VERBOSE
+#if LOG_VERBOSE
                 _logger.LogInformation("GeoHashDaemon: Not now, dear.");
 #endif
             }
@@ -153,7 +155,7 @@ namespace GeoHashDaemon
 
         private void OnStarted()
         {
-            _logger.LogWarning("GeoHashNotifier 1.3 started.");
+            _logger.LogWarning($"GeoHashNotifier {_version} started.");
         }
 
         private void OnStopping()
