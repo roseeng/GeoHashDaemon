@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
+using System.Runtime.Versioning;
 using System.ServiceProcess;
 using System.Text;
 

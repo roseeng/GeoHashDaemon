@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29806.167
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoHashDaemon", "GeoHashDaemon\GeoHashDaemon.csproj", "{13F53032-2F67-455F-AED4-76CDDCA0055B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoHashTest", "GeoHashTest\GeoHashTest.csproj", "{5247617B-7B5F-447D-A7C8-C8C30E37B1DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{13F53032-2F67-455F-AED4-76CDDCA0055B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13F53032-2F67-455F-AED4-76CDDCA0055B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13F53032-2F67-455F-AED4-76CDDCA0055B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5247617B-7B5F-447D-A7C8-C8C30E37B1DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5247617B-7B5F-447D-A7C8-C8C30E37B1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5247617B-7B5F-447D-A7C8-C8C30E37B1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5247617B-7B5F-447D-A7C8-C8C30E37B1DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,7 +21,6 @@ namespace GeoHashDaemon
         /// <param name="message"></param>
         public static void SendNotification(string title, string message)
         {
-
             SendAlertAsync(title, message, priority: Priority.Low, notificationSound: NotificationSound.Pushover).ConfigureAwait(false).GetAwaiter().GetResult();
         }
 
@@ -36,7 +35,12 @@ namespace GeoHashDaemon
             var response = await pclient.PushAsync(title, message, priority: priority, notificationSound: notificationSound);
 
             if (response.Status != 1)
-                throw new ApplicationException("Pushover error: " + response.Errors?.Count);
+            {
+                if (response.Errors != null && response.Errors.Count > 0)
+                    throw new ApplicationException("Pushover error: " + response.Errors[0]);
+                else
+                    throw new ApplicationException("Pushover error: " + response.Status);
+            }
 
             //if (Verbose)
             //    _logger.LogWarning("Pushover notification sent to : " + userToken);            
